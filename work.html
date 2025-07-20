@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Cheat School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: white;
+      color: black;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+    }
+    
+    .dear-face {
+      display: none;
+      padding: 15px 0;
+    }
+    
+    .dear-face img {
+     width: 150px;
+      height: auto;
+    }
+    
+    .content-container {
+      width: 100%;
+      max-width: 100%;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* Mobile layout - logo first */
+    .text-logo-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .logo {
+      text-align: center;
+      margin: 0 auto 20px;
+      order: 1;
+    }
+    
+    .logo img {
+      height: auto;
+      width: 100%;
+      max-width: 280px;
+    }
+    
+    .text-content {
+      text-align: center;
+      margin-bottom: 20px;
+      order: 2;
+    }
+    
+    .text-content h1 {
+      font-weight: 700;
+      font-size: 3.5rem;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    
+    .text-content p {
+      font-size: 1.7rem;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    
+    .waitlist-btn {
+      font-size: 1.5rem;
+      display: inline-block;
+      padding: 12px 35px;
+      background-color: transparent;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid black;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      order: 3;
+      cursor: pointer;
+    }
+    
+    .waitlist-btn:hover {
+      background-color: #e83f25;
+      border-color: #e83f25;
+      color: white;
+    }
+    
+    @media (min-width: 768px) {
+      .dear-face {
+        display: block;
+      }
+      
+      .content-container {
+        max-width: 1100px;
+        padding: 25px;
+      }
+      
+      /* Desktop layout - text and logo side by side */
+      .text-logo-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+      }
+      
+      /* Reset order for desktop */
+      .logo {
+        order: 2;
+        flex: 1;
+        text-align: right;
+        margin-bottom: 0;
+      }
+      
+      .text-content {
+        order: 1;
+        flex: 1;
+        text-align: left;
+        margin-bottom: 0;
+      }
+      
+      .text-content h1 {
+        font-size: 3.4rem;
+        line-height: 1.1;
+      }
+      
+      .logo img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      .waitlist-btn {
+        order: 3;
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dear-face">
+    <img src="dear.png" alt="Dear Icon" />
+  </div>
+
+  <div class="content-container">
+    <div class="text-logo-container">
+      <div class="logo">
+        <img id="logoSwitcher" src="logo-light.png" alt="THE CHEAT SCHOOL" />
+      </div>
+      
+      <div class="text-content">
+        <h1>THE GAME WAS<br> RIGGED, SO WE<br> BUILT A NEW ONE.</h1>
+        <p>Where warriors,misfits,silent geniuses<br>learn what no school dared to teach</p>
+      </div>
+    </div>
+    
+    <button id="waitlistBtn" class="waitlist-btn" onclick="window.open('https://forms.gle/7VJ5ELgqEQQFd6Pw7', '_blank')">JOIN THE WAITLIST</button>
+  </div>
+
+  <script>
+    
+    const logo = document.getElementById("logoSwitcher");
+    const images = ["logo-light.png", "logo-light1.png"];
+    let currentImage = 0;
+
+    setInterval(() => {
+      currentImage = (currentImage + 1) % images.length;
+      logo.src = images[currentImage];
+    }, 1000);
+  </script>
+</body>
+</html>
